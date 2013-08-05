@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="PhantomJS 1.9.1 (Mac OS X)" package="" timestamp="2013-08-05T21:35:40" id="0" hostname="philip.local" tests="5" errors="0" failures="0" time="0.003">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.1 Safari/534.34"/>
+    </properties>
+    <testcase name="has event mixin" time="0.002" classname="PhantomJS 1.9.1 (Mac OS X).ObjectFactory"/>
+    <testcase name="extend" time="0" classname="PhantomJS 1.9.1 (Mac OS X).ObjectFactory"/>
+    <testcase name="has Base method" time="0.001" classname="PhantomJS 1.9.1 (Mac OS X).ObjectFactory"/>
+    <testcase name="does not overwrite parent" time="0" classname="PhantomJS 1.9.1 (Mac OS X).ObjectFactory"/>
+    <testcase name="only enumerates attrs" time="0" classname="PhantomJS 1.9.1 (Mac OS X).ObjectFactory"/>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+</testsuites>

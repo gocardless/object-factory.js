@@ -1,0 +1,21 @@
+<html>
+  <meta charset=utf-8>
+  <script src=../lib/lodash.js></script>
+  <script src=../lib/redefine.js></script>
+  <script src=../lib/eddy.js></script>
+  <script src=../src/object-factory.js></script>
+
+  <script>
+    var Customer = ObjectFactory.extend({
+      AUTHORIZED_STATUS: 'authorised',
+      isAuthorized: function isAuthorized() {
+        return this.status === this.AUTHORIZED_STATUS;
+      }
+    });
+
+    var customer = Customer.extend({
+      name: 'Frank',
+      status: 'authorised'
+    });
+  </script>
+</html>

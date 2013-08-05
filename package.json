@@ -1,0 +1,32 @@
+{
+  "name": "object-factory.js",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gocardless/object-factory.git"
+  },
+  "bugs": {
+    "url": "http://github.com/gocardless/object-factory/issues"
+  },
+  "devDependencies": {
+    "grunt-cli": "~0.1.9",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.2",
+    "grunt-karma": "~0.5.0",
+    "karma-coverage": "~0.0.4",
+    "karma-growl-reporter": "~0.0.2",
+    "karma-junit-reporter": "~0.0.2",
+    "karma-sauce-launcher": "~0.0.6",
+    "karma-phantomjs-launcher": "~0.0.2",
+    "karma-opera-launcher": "~0.0.2",
+    "karma-firefox-launcher": "~0.0.3",
+    "karma-chrome-launcher": "~0.0.2",
+    "matchdep": "~0.1.2"
+  },
+  "scripts": {
+    "test": "grunt citest"
+  },
+  "engines": {
+    "node": "0.10.0"
+  }
+}
