@@ -1,5 +1,7 @@
 # ObjectFactory.js
 
+![](https://circleci.com/gh/gocardless/object-factory.js.png?circle-token=:circle-token)
+
 Built as a thin model layer. Used with Angular.js @gocardless.
 
 Requirements:
