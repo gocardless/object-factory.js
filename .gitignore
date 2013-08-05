@@ -10,6 +10,9 @@ node_modules/
 # Ignore the DS_Store
 .DS_Store
 
+# JUnit
+test-results.xml
+
 # Ignore spec coverage output
 coverage
 
