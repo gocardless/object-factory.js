@@ -3,11 +3,11 @@
 describe('ObjectFactory', function() {
   var Base;
   beforeEach(function() {
-    Base = ObjectFactory.extend();
+    Base = ObjectFactory.create();
   });
 
   function baseItem(attrs) {
-    return Base.extend(attrs);
+    return Base.create(attrs);
   }
 
   it('has event mixin', function() {
@@ -21,7 +21,7 @@ describe('ObjectFactory', function() {
     expect(calledEvent).toEqual(CALLED);
   });
 
-  it('extend', function() {
+  it('create', function() {
     var item = baseItem({
       value: 1
     });

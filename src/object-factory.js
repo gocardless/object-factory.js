@@ -41,11 +41,11 @@
   var ObjectFactoryMethods = {
     /**
      * Returns object factory that inherits from ObjectFactory
-     * The extend method is overwritten on the returned factory
+     * The create method is overwritten on the returned factory
      * @param  {Object} object
      * @return {Object}
      */
-    extend: function extend(attrs) {
+    create: function create(attrs) {
       return redefine.from(this, attrs || {}, enumerableDescriptors);
     }
   };

@@ -4,12 +4,12 @@
 
 A thin object inheritance layer. Built for Angular.js.
 
-Exposes `extend method` which calls `Object.create(this)` (using redefine.js)
+Exposes `create method` which calls `Object.create(this)` (using redefine.js)
 and sets passed in attributes as enumerable properties.
 
 Mixes in eddy.js event methods.
 
-Inherited methids: `extend`, `on`, `once`, `off`, `trigger`, `boundTo`, `emit`
+Inherited methids: `create`, `on`, `once`, `off`, `trigger`, `boundTo`, `emit`
 
 Requirements:
 - ES5 Browser
@@ -19,7 +19,7 @@ Requirements:
 ## Base object
 
 ```javascript
-var Customer = ObjectFactory.extend({
+var Customer = ObjectFactory.create({
   consts: Object.freeze({
     AUTHORIZED_STATUS: 'authorised',
   }),
@@ -32,7 +32,7 @@ var Customer = ObjectFactory.extend({
 ## Instance creation
 
 ```javascript
-var customer = Customer.extend({
+var customer = Customer.create({
   name: 'Frank',
   status: 'authorised'
 });
@@ -44,7 +44,7 @@ customer.isAuthorized(); // true
 ## Meta instance creation...
 
 ```javascript
-var customersSon = customer.extend({
+var customersSon = customer.create({
   name: 'Frank Jr.'
 });
 customersSon.status; // 'authorised'
@@ -55,7 +55,7 @@ customersSon.status; // 'authorised'
 Uses @WebReflectios eddy.js: https://github.com/WebReflection/eddy
 
 ```javascript
-var Box = ObjectFactory.extend();
+var Box = ObjectFactory.create();
 Box.on('event', function(event) {
   console.log(event.called);
 }).trigger('event', { called: 'called' });

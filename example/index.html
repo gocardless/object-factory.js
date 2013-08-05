@@ -5,14 +5,14 @@
   <script src=../src/object-factory.js></script>
 
   <script>
-    var Customer = ObjectFactory.extend({
+    var Customer = ObjectFactory.create({
       AUTHORIZED_STATUS: 'authorised',
       isAuthorized: function isAuthorized() {
         return this.status === this.AUTHORIZED_STATUS;
       }
     });
 
-    var customer = Customer.extend({
+    var customer = Customer.create({
       name: 'Frank',
       status: 'authorised'
     });
