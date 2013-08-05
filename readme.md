@@ -1,12 +1,16 @@
 # ObjectFactory.js
 
-Built as a model layer. Used with Angular.js @gocardless.
+Built as a thin model layer. Used with Angular.js @gocardless.
 
 Requirements:
+- ES5 Browser
 - redefine.js
 - eddy (modfied source)
 
 ## Base model
+Create base object with non-enumerable properties that has a
+`extend` method that takes model attributes.
+
 ```javascript
 var Customer = ObjectFactory.extend({
   consts: Object.freeze({
@@ -19,6 +23,9 @@ var Customer = ObjectFactory.extend({
 ```
 
 ## Instance creation
+Create object inheriting from Customer. Sets passed in attributes as
+enumerable properties.
+
 ```javascript
 var customer = Customer.extend({
   name: 'Frank',
@@ -27,9 +34,14 @@ var customer = Customer.extend({
 
 // Access model methods
 customer.isAuthorized(); // true
+```
 
-// Serialize attributes
-customer.toJSON(); // { name: 'Frank', status: 'authorised' }
+## Meta instance creation...
+```javascript
+var customersSon = customer.extend({
+  name: 'Frank Jr.'
+});
+customersSon.status; // 'authorised'
 ```
 
 ## Event mixin
@@ -42,3 +54,7 @@ Box.on('event', function(event) {
   console.log(event.called);
 }).trigger('event', { called: 'called' });
 ```
+
+## Copyright and license
+
+Copyright 2013 GoCardless, Inc under the MIT license.
