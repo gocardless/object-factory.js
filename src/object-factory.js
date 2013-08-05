@@ -1,7 +1,7 @@
 (function(global) {
   'use strict';
 
-  var redefine = global._.redefine;
+  var redefine = global._.redefine || global.redefine;
 
   /**
    *  var Customer = ObjectFactory.create({

@@ -3,7 +3,6 @@
 Built as a model layer. Used with Angular.js @gocardless.
 
 Requirements:
-- lodash
 - redefine.js
 - eddy (modfied source)
 
