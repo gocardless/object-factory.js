@@ -2,7 +2,7 @@
 
 ![](https://circleci.com/gh/gocardless/object-factory.js.png?circle-token=:circle-token)
 
-A thin model layer. Used with Angular.js @gocardless.
+A thin model inheritance layer. Built for Angular.js.
 
 Requirements:
 - ES5 Browser
