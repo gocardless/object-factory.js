@@ -2,16 +2,21 @@
 
 ![](https://circleci.com/gh/gocardless/object-factory.js.png?circle-token=:circle-token)
 
-A thin model inheritance layer. Built for Angular.js.
+A thin object inheritance layer. Built for Angular.js.
+
+Exposes `extend method` which calls `Object.create(this)` (using redefine.js)
+and sets passed in attributes as enumerable properties.
+
+Mixes in eddy.js event methods.
+
+Inherited methids: `extend`, `on`, `once`, `off`, `trigger`, `boundTo`, `emit`
 
 Requirements:
 - ES5 Browser
 - redefine.js
 - eddy (modfied source)
 
-## Base model
-Create base object with non-enumerable properties that has a
-`extend` method that takes model attributes.
+## Base object
 
 ```javascript
 var Customer = ObjectFactory.extend({
@@ -25,8 +30,6 @@ var Customer = ObjectFactory.extend({
 ```
 
 ## Instance creation
-Create object inheriting from Customer. Sets passed in attributes as
-enumerable properties.
 
 ```javascript
 var customer = Customer.extend({
@@ -34,11 +37,12 @@ var customer = Customer.extend({
   status: 'authorised'
 });
 
-// Access model methods
+// Access object methods
 customer.isAuthorized(); // true
 ```
 
 ## Meta instance creation...
+
 ```javascript
 var customersSon = customer.extend({
   name: 'Frank Jr.'
@@ -47,8 +51,8 @@ customersSon.status; // 'authorised'
 ```
 
 ## Event mixin
-Uses @WebReflectios eddy.js
-https://github.com/WebReflection/eddy
+
+Uses @WebReflectios eddy.js: https://github.com/WebReflection/eddy
 
 ```javascript
 var Box = ObjectFactory.extend();

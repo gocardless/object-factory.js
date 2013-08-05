@@ -27,15 +27,6 @@
    */
 
   /**
-   * @type {Function}
-   */
-  var nonEnumerableDescriptors = redefine.as({
-    enumerable: false,
-    configurable: true,
-    writable: true
-  });
-
-  /**
    * @type {Object}
    */
   var enumerableDescriptors = redefine.as({
@@ -45,14 +36,22 @@
   });
 
   /**
-   * More to come...
    * @type {Object}
    */
   var ObjectFactoryMethods = {
+    /**
+     * Returns object factory that inherits from ObjectFactory
+     * The extend method is overwritten on the returned factory
+     * @param  {Object} object
+     * @return {Object}
+     */
+    extend: function extend(attrs) {
+      return redefine.from(this, attrs || {}, enumerableDescriptors);
+    }
   };
 
   /**
-   * Object without __proto__ that includes non-enumerable event methods
+   * Object without __proto__ that includes event methods
    *
    * eddy.js provides the following methods:
    * - boundTo
@@ -66,22 +65,8 @@
    */
   var ObjectFactory = redefine.from(null,
     redefine.mixin(ObjectFactoryMethods, global.eddy),
-    nonEnumerableDescriptors
+    enumerableDescriptors
   );
-
-  /**
-   * Returns object factory that inherits from ObjectFactory
-   * The extend method is overwritten on the returned factory
-   * @param  {Object} object
-   * @return {Object}
-   */
-  ObjectFactory.extend = function extend(factory) {
-    return redefine.from(ObjectFactory, redefine.mixin({
-      extend: function extend(attrs) {
-        return redefine.from(this, attrs || {}, enumerableDescriptors);
-      }
-    }, factory || {}), nonEnumerableDescriptors);
-  };
 
   global.ObjectFactory = ObjectFactory;
 
