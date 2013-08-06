@@ -4,17 +4,21 @@
 
 A thin object inheritance layer. Built for Angular.js.
 
-Exposes `create method` which calls `Object.create(this)` (using redefine.js)
+Exposes `create` method which calls `Object.create(this)` using redefine.js
 and sets passed in attributes as enumerable properties.
 
 Mixes in eddy.js event methods.
 
-Inherited methids: `create`, `on`, `once`, `off`, `trigger`, `boundTo`, `emit`
+Eddy methods: `on`, `once`, `off`, `trigger`, `boundTo`, `emit`
 
 Requirements:
 - ES5 Browser
-- redefine.js
-- eddy (modfied source)
+- redefine.js: https://github.com/WebReflection/redefine
+- eddy: https://github.com/WebReflection/eddy (modified to not extend all objects)
+
+## Angular.js $http adapter
+
+Coming soon...
 
 ## Base object
 
@@ -41,7 +45,7 @@ var customer = Customer.create({
 customer.isAuthorized(); // true
 ```
 
-## Meta instance creation...
+### Meta instance creation...
 
 ```javascript
 var customersSon = customer.create({
