@@ -1,7 +1,7 @@
 (function(global) {
   'use strict';
 
-  var redefine = global._.redefine || global.redefine;
+  var redefine = global._.redefine;
 
   /**
    *  var Customer = ObjectFactory.create({
@@ -29,43 +29,50 @@
   /**
    * @type {Object}
    */
-  var enumerableDescriptors = redefine.as({
-    enumerable: true,
-    configurable: true,
-    writable: true
+  var strictDescriptors = redefine.as({
+    enumerable: false,
+    configurable: false,
+    writable: false
   });
 
   /**
    * @type {Object}
    */
-  var ObjectFactoryMethods = {
+  var enumDescriptors = redefine.as({
+    enumerable: true,
+    configurable: true,
+    writable: true
+  });
+
+  var placeholder = redefine.from(null);
+
+  /**
+   * @type {Object}
+   */
+  var ObjectFactoryMethods = redefine.mixin({
     /**
      * Returns object factory that inherits from ObjectFactory
      * The create method is overwritten on the returned factory
      * @param  {Object} object
+     * @param  {Object} descriptors
      * @return {Object}
      */
-    create: function create(attrs) {
-      return redefine.from(this, attrs || {}, enumerableDescriptors);
+    create: function create(attrs, descriptors) {
+      return redefine.from(this,
+        (attrs || placeholder),
+        (descriptors || enumDescriptors)
+      );
     }
-  };
+  }, global.eddy);
 
   /**
-   * Object without __proto__ that includes event methods
-   *
-   * eddy.js provides the following methods:
-   * - boundTo
-   * - emit
-   * - off
-   * - on
-   * - once
-   * - trigger
-   *
+   * Object with `create`, `on`, `once`, `off`, `trigger`, `boundTo`, `emit`
+   * methods
    * @type {Object}
    */
   var ObjectFactory = redefine.from(null,
-    redefine.mixin(ObjectFactoryMethods, global.eddy),
-    enumerableDescriptors
+    ObjectFactoryMethods,
+    strictDescriptors
   );
 
   global.ObjectFactory = ObjectFactory;
