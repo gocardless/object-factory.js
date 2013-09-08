@@ -8,8 +8,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'lib/*.js',
-      'src/*.js'
+      'components/bower-eddy-x/eddy-x.js',
+      'components/bower-redefine/redefine.js',
+      'object-factory.js',
+      'object-factory.spec.js'
     ],
 
 

@@ -4,8 +4,8 @@
 /tmp
 npm-debug.log
 
-# Front end stuff
 node_modules/
+components
 
 # Ignore the DS_Store
 .DS_Store
