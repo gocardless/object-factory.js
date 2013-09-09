@@ -9,6 +9,7 @@
   "ignore": [
     "**/.*",
     "*.spec.js",
+    "example",
     "node_modules",
     "components",
     "package.json",
