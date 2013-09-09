@@ -1,5 +1,5 @@
 {
-  "name": "object-factory",
+  "name": "object-factory.js",
   "version": "0.0.1",
   "main": "object-factory.js",
   "dependencies": {
